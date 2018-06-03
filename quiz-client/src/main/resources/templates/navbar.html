@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<body>
+<div  id="navBarFragment" th:fragment="navBarFragment">
+    <!-- left side nav-->
+    <div class="col-md-3 left_col">
+        <div class="left_col scroll-view" style=" background: #4c4c4c !important;">
+            <div class="navbar nav_title" style="border: 0; background: #4c4c4c !important;">
+                <a href="index.html" class="site_title"><span>IRITA</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <hr/>
+                <div class="menu_section">
+                    <ul class="nav side-menu">
+                        <li><a href="/"><i class="fa fa-home"></i> Home </a></li>
+                        <li><a href="/index"><i class="fa fa-clone"></i>All Poroject</a></li>
+                        <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <li><a href="#"><i class="fa fa-user-plus"></i>Create User</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- top navigation -->
+    <div class="top_nav">
+        <div class="nav_menu">
+            <nav>
+                <div class="nav toggle">
+                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="logout" sec:authorize="isAuthenticated()">
+                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                           aria-expanded="false">
+                            Welcome, <span sec:authentication="name">Reza</span>
+                            <img src="images/shraddha.png" alt="Photo"/>
+
+
+
+                              <!--  Roles: <span sec:authentication="authorities">[ROLE_USER, ROLE_ADMIN]</span>-->
+
+                            <span class=" fa fa-angle-down"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-usermenu pull-right">
+                            <li><a href="javascript:;"> Profile</a></li>
+                            <li> <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Logout"/></form></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

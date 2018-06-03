@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head th:include="header :: headerFragment" ></head>
+
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container" style=" background: #4c4c4c !important;">
+
+        <div  th:include="navbar :: navBarFragment" ></div>
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title" >
+
+
+                    <div class="title_left" style="border: 1px solid black !important; width:100% ; background: #4c4c4c;">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group  top_search" style="color: #ffffff;padding: 10px;">
+                            <h3>Projects</h3>
+                            <div class="input-group" style="width:80% !important;">
+
+                                <input type="text" class="form-control" placeholder="Search for..." style="color:#ffffff; background: #4c4c4c !important;" />
+                                <span class="input-group-btn" style="background: #4c4c4c !important;">
+                      <button class="btn btn-default" type="button" style="background: #4c4c4c !important;">Go!</button>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center" style="margin-bottom: 2%;">
+
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <!-- <h4 class="brief"><i>Digital Strategist</i></h4> -->
+                                <div class="left col-xs-7">
+                                    <h3>Spring</h3>
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="images/spring.png" alt="" class="img-circle img-responsive" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom " style="background: #ffffff !important;">
+
+                                <p style="font-size: 16px;padding: 10px;">If Java is Engine then Spring is the fuel</p>
+                                <div class="col-xs-12 col-sm-6 ">
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 " style="margin-top: 40%;">
+                                    <a href="/view" >
+                                        VIEW PROJECT
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12" >
+                                <!-- <h4 class="brief"><i>Digital Strategist</i></h4> -->
+                                <div class="left col-xs-7">
+                                    <h3>Java</h3>
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="images/java.png" alt="" class="img-circle img-responsive"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom " style="background: #ffffff !important;">
+
+                                <p style="font-size: 16px;padding: 10px;">Java is the best language ever we know</p>
+                                <div class="col-xs-12 col-sm-6 ">
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 " style="margin-top: 40%;">
+                                    <a href="/view" >
+                                        VIEW PROJECT
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <div class="left col-xs-7">
+                                    <h3>Android</h3>
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="images/android.png" alt="" class="img-circle img-responsive" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom " style="background: #ffffff !important;">
+
+                                <p style="font-size: 16px;padding: 10px;">An operating system for mobile mainly</p>
+                                <div class="col-xs-12 col-sm-6 ">
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6 " style="margin-top: 40%;">
+                                    <a href="/view" >
+                                        VIEW PROJECT
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- footer content -->
+        <div th:include="footer :: footerFragment"  ></div>
+        <!-- /footer content -->
+    </div>
+</div>
+
+</body>
+</html>

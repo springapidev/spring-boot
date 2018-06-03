@@ -20,6 +20,11 @@ public class HomeController {
         return "Hellow Coders!";
     }
 
+    @GetMapping(value = "/secure/ok")
+    public String indexSecure(){
+        return "Hellow Secure!";
+    }
+
     /**
      * @apiNote Save method for User
      * @param user

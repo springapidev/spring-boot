@@ -1,0 +1,98 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 50px;
+  overflow: hidden;
+  background: #f2f0f2;
+}
+
+.orbit {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  visibility: hidden;
+  -moz-box-shadow: 0 0 30px rgba(213, 39, 21, 0.1);
+  -webkit-box-shadow: 0 0 30px rgba(213, 39, 21, 0.1);
+  box-shadow: 0 0 30px rgba(213, 39, 21, 0.1);
+}
+
+.orbit-heart {
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  -moz-box-shadow: 0 0 30px rgba(213, 39, 21, 0.5), 0 0 250px #d52715;
+  -webkit-box-shadow: 0 0 30px rgba(213, 39, 21, 0.5), 0 0 250px #d52715;
+  box-shadow: 0 0 30px rgba(213, 39, 21, 0.5), 0 0 250px #d52715;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzU2NTc1OSIgc3RvcC1vcGFjaXR5PSIwLjc1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjkyYTJjIiBzdG9wLW9wYWNpdHk9IjAuNzUiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -moz-radial-gradient(center center, 150px 150px, rgba(86, 87, 89, 0.75) 0%, rgba(41, 42, 44, 0.75) 100%);
+  background-image: -webkit-radial-gradient(center center, 150px 150px, rgba(86, 87, 89, 0.75) 0%, rgba(41, 42, 44, 0.75) 100%);
+  background-image: radial-gradient(150px 150px at center center, rgba(86, 87, 89, 0.75) 0%, rgba(41, 42, 44, 0.75) 100%);
+  border: 6px solid #fff;
+}
+
+.orbit-inner {
+  width: 300px;
+  height: 300px;
+  margin: 50px;
+}
+
+.orbit-middle {
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+}
+
+.orbit-outer {
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+
+.orbit-heart__initial {
+  color: #fff;
+  font-size: 25px;
+  padding: 60px 20px;
+  text-align: center;
+  display: block;
+}
+
+.center {
+  position: absolute;
+}
+
+.pivot {
+  position: absolute;
+  border: 1px solid #000;
+}
+
+.pivot-inner {
+  top: -150px;
+}
+
+.pivot-middle {
+  top: -200px;
+}
+
+.pivot-outer {
+  top: -250px;
+}
+
+.node {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: -35px;
+  top: -35px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  text-decoration: none;
+  color: red;
+  line-height: 1;
+  padding: 25px 0;
+}

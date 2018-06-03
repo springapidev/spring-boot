@@ -21,6 +21,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    PasswordEncoder passwordEncoder;
 
     //private PasswordEncoder passwordEncoder;
     /**

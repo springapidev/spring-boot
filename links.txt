@@ -1,0 +1,2 @@
+https://medium.com/@nydiarra/secure-a-spring-boot-rest-api-with-json-web-token-reference-to-angular-integration-e57a25806c50
+https://www.toptal.com/java/rest-security-with-jwt-spring-security-and-java

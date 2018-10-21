@@ -13,13 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class UserController {
     @Autowired
     private UserRepo repo;
 
 
-    @GetMapping("/all")
+    @PostMapping("/all")
     public List<User> getAllTodos() {
         Sort sortByCreatedAtDesc = new Sort(Sort.Direction.DESC, "createdAt");
         return repo.findAll(sortByCreatedAtDesc);

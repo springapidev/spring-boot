@@ -106,17 +106,41 @@
                                 <label th:if="${#fields.hasErrors('privilizeName')}" th:errors="*{privilizeName}"  class="text-danger"></label>
                             </div>
                         </div>
+                               <div class="form-group">
+                                   <div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">
+                                       <button type="submit" class="btn btn-lg btn-outline-dark btn-block">Create</button>
+                                   </div>
+                               </div>
 
-                        <div class="form-group">
-                            <div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </div>
-                        </div>
                     </form>
 
                 </div>
 
+<div class="row">
 
+    <div class="table-responsive">
+        <table class="table table-hover table-dark">
+            <thead>
+            <tr>
+                <th>S.L</th>
+                <th>ID</th>
+                <th>Privilize Name</th>
+                <th colspan="2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:id="${data.id}" th:each="data : ${list}">
+                <td th:text="${data.id}">S.L</td>
+                <td th:text="${data.getId()}">ID</td>
+                <td th:text="${data.getPrivilizeName()}">Privilize Name</td>
+                <td><a  id="editview" class="btn btn-sm btn-default" th:href="@{'/privilize/create/'+ ${data.id}}"><i class="fa fa-edit"></i> View</a></td>
+                <td><a  id="delview" class="btn btn-sm btn-default" th:href="@{'/privilize/create/'+ ${data.id}}"><i class="fa fa-trash"></i> Del</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
 
     </div>
 </section>

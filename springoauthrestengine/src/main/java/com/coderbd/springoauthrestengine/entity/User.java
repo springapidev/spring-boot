@@ -1,8 +1,5 @@
 package com.coderbd.springoauthrestengine.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -10,12 +7,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Getter
-@EqualsAndHashCode
-@ToString
 @Table(name = "user")
 public class User {
     @Id
@@ -73,5 +68,73 @@ public class User {
         this.isActivated=isActivated;
         this.activationKey=activationKey;
         this.resetPasswordKey=resetPasswordKey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return isActivated == user.isActivated &&
+                Objects.equals(id, user.id) &&
+                Objects.equals(userName, user.userName) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(mobile, user.mobile) &&
+                Objects.equals(joiningDate, user.joiningDate) &&
+                Objects.equals(activationKey, user.activationKey) &&
+                Objects.equals(resetPasswordKey, user.resetPasswordKey) &&
+                Objects.equals(roles, user.roles);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, userName, firstName, lastName, email, mobile, joiningDate, isActivated, activationKey, resetPasswordKey, roles);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public Date getJoiningDate() {
+        return joiningDate;
+    }
+
+    public boolean isActivated() {
+        return isActivated;
+    }
+
+    public String getActivationKey() {
+        return activationKey;
+    }
+
+    public String getResetPasswordKey() {
+        return resetPasswordKey;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 }

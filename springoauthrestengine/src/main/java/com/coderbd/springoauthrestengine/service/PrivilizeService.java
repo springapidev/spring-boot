@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface PrivilizeService {
     Privilize save(Privilize privilize);
     Privilize update(Privilize privilize);
-    void delete(Privilize privilize);
+    void delete(Long id);
     Optional<Privilize> getPrivilize(Long id);
     List<Privilize> getAllPrivilizes();
     Privilize isAlreadyExist(String privilizeName);

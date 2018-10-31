@@ -10,6 +10,7 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("title","Hire Us to Build Your  Future ");
         modelAndView.setViewName("index");
         return modelAndView;
     }

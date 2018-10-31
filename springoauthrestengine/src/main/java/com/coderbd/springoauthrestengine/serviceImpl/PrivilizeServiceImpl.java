@@ -25,8 +25,8 @@ public class PrivilizeServiceImpl implements PrivilizeService {
     }
 
     @Override
-    public void delete(Privilize privilize) {
-        repo.delete(privilize);
+    public void delete(Long id) {
+        repo.deleteById(id);
     }
 
     @Override

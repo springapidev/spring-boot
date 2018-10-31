@@ -8,26 +8,29 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
-@RequestMapping("/privilize")
 public class PrivilizeController {
     @Autowired
     private PrivilizeService service;
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/privilize/create", method = RequestMethod.GET)
     public ModelAndView getPrivilize() {
         ModelAndView modelAndView = new ModelAndView();
         Privilize privilize= new Privilize();
         modelAndView.addObject("privilize",privilize);
+        List<Privilize> list=service.getAllPrivilizes();
+        modelAndView.addObject("list",list);
         modelAndView.setViewName("create-privilize");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView savePrivilize(@Valid @ModelAttribute Privilize privilize, BindingResult bindingResult){
+    @RequestMapping(value = "/privilize/create", method = RequestMethod.POST)
+    public ModelAndView savePrivilize(@Valid Privilize privilize, BindingResult bindingResult){
      //   privilize=new Privilize("READ");
         ModelAndView modelAndView = new ModelAndView();
         Privilize privilizeExit=service.isAlreadyExist(privilize.getPrivilizeName());
@@ -44,6 +47,17 @@ public class PrivilizeController {
     modelAndView.addObject("privilize", new Privilize());
      modelAndView.setViewName("create-privilize");
         }
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/privilize/create/{id}", method = RequestMethod.DELETE)
+    public ModelAndView delPrivilize(@RequestParam(name = "id") Long id) {
+        ModelAndView modelAndView = new ModelAndView();
+        service.delete(id);
+        List<Privilize> list=service.getAllPrivilizes();
+        modelAndView.addObject("list",list);
+        modelAndView.setViewName("create-privilize");
         return modelAndView;
     }
 }

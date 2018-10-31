@@ -1,18 +1,12 @@
 package com.coderbd.springoauthrestengine.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "role")
-@Getter
-@EqualsAndHashCode
-@ToString
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,5 +27,33 @@ public class Role {
     public Role(String rolename, Set<Privilize>privilizes) {
         this.rolename = rolename;
         this.privilizes = privilizes;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getRolename() {
+        return rolename;
+    }
+
+    public Set<Privilize> getPrivilizes() {
+        return privilizes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Role role = (Role) o;
+        return Objects.equals(id, role.id) &&
+                Objects.equals(rolename, role.rolename) &&
+                Objects.equals(privilizes, role.privilizes);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, rolename, privilizes);
     }
 }

@@ -330,10 +330,11 @@ p {
     z-index: 99;
     top: 0;
     padding: 0 4%;
+    background: #884bdf;
 }
 
 .menu_area .navbar-brand {
-    font-size: 72px;
+    font-size: 55px;
     font-weight: 700;
     color: #fff;
     margin: 0;
@@ -362,7 +363,7 @@ p {
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms;
-    padding: 35px 15px;
+    padding: 15px 15px;
 }
 
 
@@ -412,7 +413,7 @@ p {
 }
 
 .header_area.sticky .menu_area #nav .nav-link {
-    padding: 23px 15px;
+    padding: 13px 15px;
 }
 .header_area.sticky .navbar {
     padding: 0;

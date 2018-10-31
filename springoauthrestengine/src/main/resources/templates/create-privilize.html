@@ -1,54 +1,238 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
 <head>
-<title>Registration Form</title>
-<link rel="stylesheet" type="text/css"
-	th:href="@{/css/registration.css}" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Hire Us to Build Your Future | Topjal</title>
+    <link rel="icon" href="img/core-img/favicon.ico" th:href="@{img/core-img/favicon.ico}">
+    <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link href="/css/responsive.css" th:href="@{/css/responsive.css}" rel="stylesheet"/>
+
 </head>
+
 <body>
-	<form th:action="@{/}" method="get">
-		<button class="btn btn-md btn-warning btn-block" type="Submit">Go
-			To Home Page</button>
-	</form>
+<!-- Preloader Start -->
+<div id="preloader">
+    <div class="colorlib-load"></div>
+</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
+<!-- ***** Header Area Start ***** -->
+<header class="header_area animated">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <!-- Menu Area Start -->
+            <div class="col-12 col-lg-10">
+                <div class="menu_area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="#">Topjal</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ca-navbar"
+                                aria-controls="ca-navbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                                class="navbar-toggler-icon"></span></button>
+                        <!-- Menu Area -->
+                        <div class="collapse navbar-collapse" id="ca-navbar">
+                            <ul class="navbar-nav ml-auto" id="nav">
+                                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#features">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#screenshot">Projects</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#office">Offices</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#login" data-toggle="modal"
+                                                        data-target="#myModal">
+                                    <!-- Trigger the modal with a button -->
+                                    Login
+                                </a></li>
+                            </ul>
+                            <div class="sing-up-button d-lg-none">
+                                <a href="#">Sign Up Free</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Signup btn -->
+            <div class="col-12 col-lg-2">
+                <div class="sing-up-button d-none d-lg-block">
+                    <a href="#">Sign Up Free</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
-				<form autocomplete="on" action="#" th:action="@{/privilize/create}"
-					  th:object="${privilize}" method="post" class="form-horizontal"
-					  role="form">
-					<h2>Create Privilize</h2>
-									<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{privilizeName}" placeholder="Privilize Name"
-								   class="form-control" /> <label
-								th:if="${#fields.hasErrors('privilizeName')}" th:errors="*{privilizeName}"
-								class="validation-message"></label>
-						</div>
-					</div>
 
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="submit" class="btn btn-primary btn-block" th:value="Create">
+<!-- ***** Special Area Start ***** -->
+<section class="special-area bg-white section_padding_100" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading Area -->
+                <div class="section-heading text-center">
+                    <h2>Create | Update | Del || Privilize</h2>
+                    <div class="line-shape"></div>
+                </div>
+            </div>
+        </div>
 
-						</div>
-					</div>
+        <div class="row">
+            <!-- Single Special Area -->
 
-					<span th:utext="${successMessage}"></span>
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+
+                    <form class="form-control" action="">
+                          <div class="form-group">
+                            <label class="control-label col-lg-2 col-md-3 col-sm-4" for="pwd">Password:</label>
+                            <div class="col-lg-10 col-md-9 col-sm-8">
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
 
 
-				</form>
-			</div>
-		</div>
-	</div>
+    </div>
+    </div>
+</section>
+<!-- ***** Special Area End ***** -->
+
+
+<!-- ***** Footer Area Start ***** -->
+<footer class="footer-social-icon text-center section_padding_70 clearfix">
+    <!-- footer logo -->
+    <div class="footer-text">
+        <h2>Topjal</h2>
+    </div>
+    <!-- social icon-->
+    <div class="footer-social-icon">
+        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#"><i class="active fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-menu">
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Foooter Text-->
+    <div class="copyright-text">
+        <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
+        <p>Copyright ©2018 Topjal. Designed by <a href="https://topjal.com" target="_blank">Topjal Inc.</a></p>
+        <p class="small text-center">Removing this text is now allowed! Removing this text is now allowed! This template
+            is licensed under CC BY 3.</p>
+        <p class="small text-center"> this text is now allowed! Removing this text is now allowed! This template is
+            licensed under CC BY 3.</p>
+
+        <p class="small text-center"> text is now allowed! Removing this text is now allowed! This template is licensed
+            under CC BY 3.</p>
+
+        <p class="small text-center"> is now allowed! Removing this text is now allowed! This template is licensed under
+            CC BY 3.</p>
+
+        <p class="small text-center"> now allowed! Removing this text is now allowed! This template is licensed under CC
+            BY 3.</p>
+
+        <p class="small text-center"> allowed! Removing this text is now allowed! This template is licensed under CC BY
+            3.</p>
+
+        <p class="small text-center"> Removing this text is now allowed! This template is licensed under CC BY 3.</p>
+
+        <p class="small text-center"> this text is now allowed! This template is licensed under CC BY 3.</p>
+
+
+        <p class="small text-center"> text is now allowed! This template is licensed under CC BY 3.</p>
+
+        <p class="small text-center">now allowed! This template is licensed under CC BY 3.</p>
+        <p class="small text-center"> allowed! This template is licensed under CC BY 3.</p>
+        <p class="small text-center"> This template is licensed under CC BY 3.</p>
+        <p class="small text-center">template is licensed under CC BY 3.</p>
+    </div>
+</footer>
+
+
+<!-- Modal for login -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login Here</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="" action="">
+                    <div class="form-group">
+                        <label for="username" class="">Username:</label><br>
+                        <input type="text" name="username" id="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="">Password:</label><br>
+                        <input type="text" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-lg btn-block submit-btn" value="submit">
+                    </div>
+                </form>
+
+                <hr/>
+                <a href="#" class="btn btn-lg btn-block submit-btn">Login with Google</a>
+                <a href="#" class="btn btn-lg btn-block submit-btn">Login with LinkedIn</a>
+
+                <h6>Don't Have an Account? | <a href="#">Create One</a></h6>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ***** Footer Area Start ***** -->
+<!-- Jquery-2.2.4 JS -->
+<script src="/js/jquery-2.2.4.min.js" th:src="@{/js/jquery-2.2.4.min.js}"></script>
+<!-- Popper js -->
+<script src="/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+<!-- Bootstrap-4 Beta JS -->
+<script src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- All Plugins JS -->
+<script src="/js/plugins.js" th:src="@{/js/plugins.js}"></script>
+<!-- Slick Slider Js-->
+<script src="/js/slick.min.js" th:src="@{/js/slick.min.js}"></script>
+<!-- Footer Reveal JS -->
+<script src="/js/footer-reveal.min.js" th:src="@{/js/footer-reveal.min.js}"></script>
+<!-- Active JS -->
+<script src="/js/active.js" th:src="@{/js/active.js}"></script>
 
 </body>
+
 </html>

@@ -13,11 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/privilize/")
+@RequestMapping("/privilize")
 public class PrivilizeController {
     @Autowired
     private PrivilizeService service;
-    @RequestMapping(value = "create", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public ModelAndView getPrivilize() {
         ModelAndView modelAndView = new ModelAndView();
         Privilize privilize= new Privilize();
@@ -26,8 +26,8 @@ public class PrivilizeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "create", method = RequestMethod.POST)
-    public ModelAndView save(@Valid Privilize privilize, BindingResult bindingResult){
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public ModelAndView savePrivilize(@Valid @ModelAttribute Privilize privilize, BindingResult bindingResult){
      //   privilize=new Privilize("READ");
         ModelAndView modelAndView = new ModelAndView();
         Privilize privilizeExit=service.isAlreadyExist(privilize.getPrivilizeName());

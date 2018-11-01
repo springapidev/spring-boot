@@ -39,8 +39,7 @@
                         <div class="collapse navbar-collapse" id="ca-navbar">
                             <ul class="navbar-nav ml-auto" id="nav">
                                 <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/role/create}">Role</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#features">Services</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#screenshot">Projects</a></li>
@@ -99,31 +98,68 @@
         <div class="row">
             <!-- Single Special Area -->
 
-            <form class="form-control single-feature wow fadeInUp" action="#" th:object="${role}" method="post"
-                  th:action="@{/role/create}" data-wow-delay="0.2s">
+            <form class="form-control single-feature wow fadeInUp" action="#" th:object="${user}" method="post"
+                  th:action="@{/user/create}" data-wow-delay="0.2s">
                 <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="rolename">Role Name:</label>
-                    <div class="col-lg-10 col-md-9 col-sm-8">
-                        <input th:type="hidden" th:value="${role.getId()}" th:name="*{id}" th:field="*{id}">
-                        <input th:type="text" class="form-control" id="rolename"
-                               th:value="${role.getRolename()}" th:name="*{rolename}"
-                               th:field="*{rolename}" placeholder="Enter Role Name">
-                        <label th:if="${#fields.hasErrors('rolename')}" th:errors="*{rolename}"
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="email">User FirstName:</label>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <input th:type="text" class="form-control" id="firstName"
+                               th:value="${user.getFirstName()}" th:name="*{mobile}"
+                               th:field="*{firstName}" placeholder="Enter First Name">
+                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
                                class="text-danger"></label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="rolename">Privilizes:</label>
-                    <div class="col-lg-10 col-md-9 col-sm-8">
-                        <ul>
-                            <li th:each="privi : ${allprivilizes}">
-                                <input type="checkbox" th:name="checkPrivilize" th:value="${privi.getId()}"/>
-                                <label th:text="${privi.getPrivilizeName()}"></label>
-                            </li>
-                        </ul>
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="userNames">User Name:</label>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <input th:type="hidden" th:value="${user.getId()}" th:name="*{id}" th:field="*{id}">
+                        <input th:type="text" class="form-control" id="userNames"
+                               th:value="${user.getUserName()}" th:name="*{userName}"
+                               th:field="*{userName}" placeholder="Enter User Name">
+                        <label th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
+                               class="text-danger"></label>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-md-3 col-sm-4">Roles:</label>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <ul>
+                        <li th:each="r : ${allRoles}">
+                            <input type="checkbox" th:name="checkRoles"  th:value="${r.getId()}" />
+                                <label th:text="${r.getRolename()}"></label>
+                          </li>
+                    </ul>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="email">User Name:</label>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <input th:type="text" class="form-control" id="email"
+                               th:value="${user.getEmail()}" th:name="*{email}"
+                               th:field="*{email}" placeholder="Enter User Email">
+                        <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                               class="text-danger"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="email">User Mobile:</label>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <input th:type="text" class="form-control" id="mobile"
+                               th:value="${user.getMobile()}" th:name="*{mobile}"
+                               th:field="*{mobile}" placeholder="Enter User Email">
+                        <label th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"
+                               class="text-danger"></label>
+                    </div>
+                </div>
+
+
+
 
 
                 <div class="form-group">
@@ -143,43 +179,41 @@
                     <thead>
                     <tr>
                         <th>S.L</th>
-                        <th>ID</th>
-                        <th>Role Name</th>
-                        <th>Privilizes</th>
+                        <th>First Name</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Roles</th>
                         <th colspan="2">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="data : ${roles}">
+                    <tr th:each="data : ${users}">
                         <td th:text="${data.getId()}">S.L</td>
-                        <td th:text="${data.getId()}">ID</td>
-                        <td th:text="${data.getRolename()}">Role Name</td>
+                        <td th:text="${data.getFirstName()}">First Name</td>
+                        <td th:text="${data.getUserName()}">User Name</td>
+                        <td th:text="${data.getEmail()}">Email</td>
+                        <td th:text="${data.getMobile()}">Mobile</td>
                         <td>
-                           <span th:each=" pri : ${data.getPrivilizes()}">
-                            <i th:text="${pri.privilizeName}"></i>
+                        <span  th:each="r : ${data.getRoles()}">
+                            <i th:text="${r.rolename}"></i>
+
                         </span>
                         </td>
-                        <td><a id="editview" class="btn btn-sm btn-default" th:href="@{'/role/edit/'+ ${data.id}}"><i
+                        <td><a id="editview" class="btn btn-sm btn-default" th:href="@{'/user/edit/'+ ${data.id}}"><i
                                 class="fa fa-edit"></i> View</a></td>
-                        <td><a id="delview" class="btn btn-sm btn-default" th:href="@{'/role/del/'+ ${data.id}}"><i
+                        <td><a id="delview" class="btn btn-sm btn-default" th:href="@{'/user/del/'+ ${data.id}}"><i
                                 class="fa fa-trash"></i> Del</a></td>
                     </tr>
                     </tbody>
                 </table>
                 <hr/>
 
-                <!--<select class="nav nav-pills" th:field="perPage" th:name="perPage">-->
-                <!--<option class="nav-item" value="5">5</option>-->
-                <!--<option class="nav-item" value="10">10</option>-->
-                <!--<option class="nav-item" value="15">15</option>-->
-                <!--<option class="nav-item" value="20">20</option>-->
-                <!--<option class="nav-item" value="50">50</option>-->
-                <!--<option class="nav-item" value="100">100</option>-->
-                <!--</select>-->
+
 
 
                 <ul class="nav nav-pills pagination text-center text-dark">
-                    <li class="nav-item" th:each="i : ${#numbers.sequence(0,roles.totalPages - 1)}">
+                    <li class="nav-item" th:each="i : ${#numbers.sequence(0,users.totalPages - 1)}">
                         <a class="nav-link" th:text="${i}" th:href="@{/role/create/(page=${i})}"></a>
                     </li>
                 </ul>

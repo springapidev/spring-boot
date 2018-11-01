@@ -19,37 +19,37 @@ public class User {
     private Long id;
     @NotEmpty(message = "*Please enter username")
     @Column(name = "username", unique = true)
-    private final String userName;
+    private String userName;
 
     @Column(name = "first_name")
-    private final String firstName;
+    private String firstName;
 
     @Column(name = "last_name")
-    private final String lastName;
+    private String lastName;
 
     @Email
     @NotEmpty(message = "*Please enter Email Address")
     @Column(name = "email", unique = true)
-    private final String email;
+    private String email;
 
     @Length(min = 11, message = "*Your mobile must have at least 11 characters")
     @NotEmpty(message = "*Please enter your mobile")
     @Column(name = "mobile", unique = true)
-    private final String mobile;
+    private String mobile;
 
     @Column(name = "joining_date")
-    private final Date joiningDate;
+    private Date joiningDate;
 
     @Column(name = "is_ctivated")
-    private final boolean isActivated;
+    private boolean isActivated;
 
     @Size(min = 0, max = 100)
     @Column(name = "activation_key")
-    private final String activationKey;
+    private String activationKey;
 
     @Size(min = 0, max = 100)
     @Column(name = "reset_pass_key")
-    private final String resetPasswordKey;
+    private String resetPasswordKey;
 
     @ManyToMany
     @JoinTable(
@@ -136,5 +136,52 @@ public class User {
 
     public Set<Role> getRoles() {
         return roles;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public void setJoiningDate(Date joiningDate) {
+        this.joiningDate = joiningDate;
+    }
+
+    public void setActivated(boolean activated) {
+        isActivated = activated;
+    }
+
+    public void setActivationKey(String activationKey) {
+        this.activationKey = activationKey;
+    }
+
+    public void setResetPasswordKey(String resetPasswordKey) {
+        this.resetPasswordKey = resetPasswordKey;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public User() {
     }
 }

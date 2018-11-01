@@ -2,6 +2,7 @@ package com.coderbd.springoauthrestengine.serviceImpl;
 
 import com.coderbd.springoauthrestengine.entity.Role;
 import com.coderbd.springoauthrestengine.repo.RoleRepo;
+import com.coderbd.springoauthrestengine.service.PrivilizeService;
 import com.coderbd.springoauthrestengine.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +16,10 @@ import java.util.Optional;
 public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleRepo repo;
+
+
+    @Autowired
+    private PrivilizeService privilizeService;
     @Override
     public Role save(Role role) {
         return repo.saveAndFlush(role);

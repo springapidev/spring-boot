@@ -15,11 +15,14 @@ public class Privilize {
     @Column(name = "privilize_name", unique = true)
     private String privilizeName;
 
+
     public Long getId() {
         return id;
     }
 
-     public String getPrivilizeName() {
+
+
+    public String getPrivilizeName() {
         return privilizeName;
     }
 
@@ -29,5 +32,13 @@ public class Privilize {
 
     public void setPrivilizeName(String privilizeName) {
         this.privilizeName = privilizeName;
+    }
+
+    @Override
+    public String toString() {
+        return "Privilize{" +
+                "id=" + id +
+                ", privilizeName='" + privilizeName + '\'' +
+                '}';
     }
 }

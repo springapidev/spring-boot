@@ -111,6 +111,20 @@
                                class="text-danger"></label>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="rolename">Privilizes:</label>
+                    <div class="col-lg-10 col-md-9 col-sm-8">
+                    <ul>
+                        <li th:each="privi : ${allprivilizes}">
+                            <input type="checkbox" th:name="checkPrivilize"  th:value="${privi.getId()}" />
+                                <label th:text="${privi.getPrivilizeName()}"></label>
+                          </li>
+                    </ul>
+                    </div>
+                </div>
+
+
                 <div class="form-group">
                     <div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">
                         <button type="submit" class="btn btn-lg btn-outline-dark btn-block">Create</button>
@@ -130,6 +144,7 @@
                         <th>S.L</th>
                         <th>ID</th>
                         <th>Role Name</th>
+                        <th>Privilizes</th>
                         <th colspan="2">Action</th>
                     </tr>
                     </thead>
@@ -138,6 +153,10 @@
                         <td th:text="${data.getId()}">S.L</td>
                         <td th:text="${data.getId()}">ID</td>
                         <td th:text="${data.getRolename()}">Role Name</td>
+                        <td  th:each=" pri : ${data.getPrivilizes()}">
+                            <span th:text="${pri.privilizeName}"></span>
+
+                        </td>
                         <td><a id="editview" class="btn btn-sm btn-default" th:href="@{'/role/edit/'+ ${data.id}}"><i
                                 class="fa fa-edit"></i> View</a></td>
                         <td><a id="delview" class="btn btn-sm btn-default" th:href="@{'/role/del/'+ ${data.id}}"><i

@@ -1,6 +1,7 @@
 package com.coderbd.springoauthrestengine.serviceImpl;
 
 import com.coderbd.springoauthrestengine.entity.Privilize;
+import com.coderbd.springoauthrestengine.entity.Role;
 import com.coderbd.springoauthrestengine.repo.PrivilizeRepo;
 import com.coderbd.springoauthrestengine.service.PrivilizeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+import java.util.Set;
 
 
 @Service

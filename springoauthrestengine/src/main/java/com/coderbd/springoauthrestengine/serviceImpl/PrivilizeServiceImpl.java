@@ -4,8 +4,9 @@ import com.coderbd.springoauthrestengine.entity.Privilize;
 import com.coderbd.springoauthrestengine.repo.PrivilizeRepo;
 import com.coderbd.springoauthrestengine.service.PrivilizeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import java.util.List;
 import java.util.Optional;
 
 
@@ -35,12 +36,14 @@ public class PrivilizeServiceImpl implements PrivilizeService {
     }
 
     @Override
-    public List<Privilize> getAllPrivilizes() {
-        return repo.findAll();
+    public Page<Privilize> getAllPrivilizes(int page,int perPageRow) {
+        return repo.findAll(PageRequest.of(page, perPageRow));
     }
+
 
     @Override
     public Privilize isAlreadyExist(String privilizeName) {
         return repo.findByPrivilizeName(privilizeName);
     }
+
 }

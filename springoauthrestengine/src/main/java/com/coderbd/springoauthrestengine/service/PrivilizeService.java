@@ -1,6 +1,8 @@
 package com.coderbd.springoauthrestengine.service;
 
 import com.coderbd.springoauthrestengine.entity.Privilize;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +13,8 @@ public interface PrivilizeService {
     Privilize update(Privilize privilize);
     void delete(Long id);
     Optional<Privilize> getPrivilize(Long id);
-    List<Privilize> getAllPrivilizes();
+    Page<Privilize> getAllPrivilizes(int page,int perPageRow);
     Privilize isAlreadyExist(String privilizeName);
+
 
 }

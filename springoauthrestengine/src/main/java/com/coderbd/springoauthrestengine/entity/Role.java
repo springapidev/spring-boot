@@ -15,18 +15,16 @@ public class Role {
 
     @Column(name = "rolename", unique = true)
     @NotEmpty(message = "Please Enter Rolename")
-    private final String rolename;
+    private String rolename;
 
     @ManyToMany
     @JoinTable(
             name = "role_privilize", joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "privilize_id")
     )
-    private final Set<Privilize> privilizes;
+    private Set<Privilize> privilizes;
 
-    public Role(String rolename, Set<Privilize>privilizes) {
-        this.rolename = rolename;
-        this.privilizes = privilizes;
+    public Role() {
     }
 
     public Long getId() {
@@ -39,6 +37,18 @@ public class Role {
 
     public Set<Privilize> getPrivilizes() {
         return privilizes;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setRolename(String rolename) {
+        this.rolename = rolename;
+    }
+
+    public void setPrivilizes(Set<Privilize> privilizes) {
+        this.privilizes = privilizes;
     }
 
     @Override

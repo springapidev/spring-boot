@@ -23,6 +23,10 @@ public class Privilize {
         return privilizeName;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setPrivilizeName(String privilizeName) {
         this.privilizeName = privilizeName;
     }

@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Hire Us to Build Your Future | Topjal</title>
+    <title>Role | Topjal</title>
     <link rel="icon" href="img/core-img/favicon.ico" th:href="@{img/core-img/favicon.ico}">
     <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
     <link href="/css/responsive.css" th:href="@{/css/responsive.css}" rel="stylesheet"/>
@@ -39,10 +39,9 @@
                         <div class="collapse navbar-collapse" id="ca-navbar">
                             <ul class="navbar-nav ml-auto" id="nav">
                                 <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/role/create}">Role</a></li>
-
+                                <li class="nav-item"><a class="nav-link" href="#features">Services</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#screenshot">Projects</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
@@ -82,7 +81,7 @@
             <div class="col-12">
                 <!-- Section Heading Area -->
                 <div class="section-heading text-center">
-                    <h2>Create | Update | Del || Privilize</h2>
+                    <h2>Create | Update | Del || Role</h2>
                     <div class="line-shape"></div>
                 </div>
             </div>
@@ -99,16 +98,16 @@
         <div class="row">
             <!-- Single Special Area -->
 
-            <form class="form-control single-feature wow fadeInUp" action="#" th:object="${privilize}" method="post"
-                  th:action="@{/privilize/create}" data-wow-delay="0.2s">
+            <form class="form-control single-feature wow fadeInUp" action="#" th:object="${role}" method="post"
+                  th:action="@{/role/create}" data-wow-delay="0.2s">
                 <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="privilizeName">Privilize Name:</label>
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="rolename">Role Name:</label>
                     <div class="col-lg-10 col-md-9 col-sm-8">
-                        <input th:type="hidden" th:value="${privilize.getId()}" th:name="*{id}" th:field="*{id}">
-                        <input th:type="text" class="form-control" id="privilizeName"
-                               th:value="${privilize.getPrivilizeName()}" th:name="*{privilizeName}"
-                               th:field="*{privilizeName}" placeholder="Enter Privilize Name">
-                        <label th:if="${#fields.hasErrors('privilizeName')}" th:errors="*{privilizeName}"
+                        <input th:type="hidden" th:value="${role.getId()}" th:name="*{id}" th:field="*{id}">
+                        <input th:type="text" class="form-control" id="rolename"
+                               th:value="${role.getRolename()}" th:name="*{rolename}"
+                               th:field="*{rolename}" placeholder="Enter Role Name">
+                        <label th:if="${#fields.hasErrors('rolename')}" th:errors="*{rolename}"
                                class="text-danger"></label>
                     </div>
                 </div>
@@ -130,18 +129,18 @@
                     <tr>
                         <th>S.L</th>
                         <th>ID</th>
-                        <th>Privilize Name</th>
+                        <th>Role Name</th>
                         <th colspan="2">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="data : ${list}">
+                    <tr th:each="data : ${roles}">
                         <td th:text="${data.getId()}">S.L</td>
                         <td th:text="${data.getId()}">ID</td>
-                        <td th:text="${data.getPrivilizeName()}">Privilize Name</td>
-                        <td><a id="editview" class="btn btn-sm btn-default" th:href="@{'/privilize/edit/'+ ${data.id}}"><i
+                        <td th:text="${data.getRolename()}">Role Name</td>
+                        <td><a id="editview" class="btn btn-sm btn-default" th:href="@{'/role/edit/'+ ${data.id}}"><i
                                 class="fa fa-edit"></i> View</a></td>
-                        <td><a id="delview" class="btn btn-sm btn-default" th:href="@{'/privilize/del/'+ ${data.id}}"><i
+                        <td><a id="delview" class="btn btn-sm btn-default" th:href="@{'/role/del/'+ ${data.id}}"><i
                                 class="fa fa-trash"></i> Del</a></td>
                     </tr>
                     </tbody>
@@ -159,8 +158,8 @@
 
 
                 <ul class="nav nav-pills pagination text-center text-dark">
-                    <li class="nav-item" th:each="i : ${#numbers.sequence(0,list.totalPages - 1)}">
-                        <a class="nav-link" th:text="${i}" th:href="@{/privilize/create/(page=${i})}"></a>
+                    <li class="nav-item" th:each="i : ${#numbers.sequence(0,roles.totalPages - 1)}">
+                        <a class="nav-link" th:text="${i}" th:href="@{/role/create/(page=${i})}"></a>
                     </li>
                 </ul>
 

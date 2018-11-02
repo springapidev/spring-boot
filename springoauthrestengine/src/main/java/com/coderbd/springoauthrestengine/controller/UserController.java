@@ -6,6 +6,8 @@ import com.coderbd.springoauthrestengine.entity.User;
 import com.coderbd.springoauthrestengine.repo.RoleRepo;
 import com.coderbd.springoauthrestengine.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,6 +34,10 @@ public class UserController {
     private static int currentPage = 1;
     private static int pageSize = 5;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public ModelAndView getuser(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage) {
         ModelAndView modelAndView = new ModelAndView();
@@ -53,14 +59,24 @@ public class UserController {
             roles.add(role);
         }
         user.setRoles(roles);
+       user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setJoiningDate(new Date());
         user.setActivated(true);
         ModelAndView modelAndView = new ModelAndView();
-        User userExit = service.isAlreadyExist(user.getEmail());
+        User userNameExit = service.isUserNameAlreadyExist(user.getUserName());
+        User emailExit = service.isEmailAlreadyExist(user.getEmail());
+        User mobileExit = service.isMobileAlreadyExist(user.getMobile());
         System.out.println("===== " + user.getRoles().toString());
-
-        if (userExit != null  && user.getId() == null) {
-            bindingResult.rejectValue("email", "error.user", "You already have inserted this user");
+        if (userNameExit != null  && user.getId() == null) {
+            bindingResult.rejectValue("userName", "error.user", "This User Name already Exist!");
+            modelAndView.addObject("users", service.getAllUsers(page, perPage));
+            modelAndView.addObject("allRoles", roleRepo.findAll());
+        }else if (emailExit != null  && user.getId() == null) {
+            bindingResult.rejectValue("email", "error.user", "This Email already Exist!");
+            modelAndView.addObject("users", service.getAllUsers(page, perPage));
+            modelAndView.addObject("allRoles", roleRepo.findAll());
+        }else if (mobileExit != null  && user.getId() == null) {
+            bindingResult.rejectValue("mobile", "error.user", "This Mobile Number already Exist!");
             modelAndView.addObject("users", service.getAllUsers(page, perPage));
             modelAndView.addObject("allRoles", roleRepo.findAll());
         }

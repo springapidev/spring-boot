@@ -41,7 +41,19 @@ repo.deleteById(id);
     }
 
     @Override
-    public User isAlreadyExist(String email) {
+    public User isEmailAlreadyExist(String email) {
         return repo.findByEmail(email);
     }
+
+    @Override
+    public User isMobileAlreadyExist(String mobile) {
+        return repo.findByMobile(mobile);
+    }
+
+    @Override
+    public User isUserNameAlreadyExist(String userName) {
+        return repo.findByUserName(userName);
+    }
+
+
 }

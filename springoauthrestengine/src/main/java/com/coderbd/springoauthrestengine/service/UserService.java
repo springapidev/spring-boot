@@ -12,6 +12,8 @@ public interface UserService {
     void delete(Long id);
     Optional<User> getUser(Long id);
     Page<User> getAllUsers(int page, int perPageRow);
-    User isAlreadyExist(String email);
+    User isEmailAlreadyExist(String email);
+    User isMobileAlreadyExist(String mobile);
+    User isUserNameAlreadyExist(String userName);
 
 }

@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Role | Topjal</title>
+    <title>Login | Topjal</title>
     <link rel="icon" href="img/core-img/favicon.ico" th:href="@{img/core-img/favicon.ico}">
     <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
     <link href="/css/responsive.css" th:href="@{/css/responsive.css}" rel="stylesheet"/>
@@ -39,12 +39,14 @@
                         <div class="collapse navbar-collapse" id="ca-navbar">
                             <ul class="navbar-nav ml-auto" id="nav">
                                 <li class="nav-item active"><a class="nav-link" th:href="@{/}">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/role/create}">Role</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/user/create}">User</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/category/create}">Category</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/tag/create}">Tag</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/post/create}">Post</a></li>
+
 
                                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
@@ -80,7 +82,7 @@
             <div class="col-12">
                 <!-- Section Heading Area -->
                 <div class="section-heading text-center">
-                    <h2>Create | Update | Del || Role</h2>
+                    <h2>Login Here|| Topjal</h2>
                     <div class="line-shape"></div>
                 </div>
             </div>
@@ -89,7 +91,7 @@
             <div class="col-12">
                 <!-- Section Heading Area -->
                 <div class="text-info">
-                    <span th:utext="${successMessage}"></span>
+                    <!--<span th:utext="${successMessage}"></span>-->
                 </div>
             </div>
         </div>
@@ -97,142 +99,68 @@
         <div class="row">
             <!-- Single Special Area -->
 
-            <form class="form-control single-feature wow fadeInUp" action="#" th:object="${user}" method="post"
-                  th:action="@{/user/create}" data-wow-delay="0.2s">
-                <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="email">User FirstName:</label>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <input th:type="text" class="form-control" id="firstName"
-                               th:value="${user.getFirstName()}" th:name="*{mobile}"
-                               th:field="*{firstName}" placeholder="Enter First Name">
-                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
-                               class="text-danger"></label>
-                    </div>
-                </div>
+            <!--<form class="form-control single-feature wow fadeInUp" action="#" method="post"-->
+                  <!--th:action="@{/login}" data-wow-delay="0.2s">-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-lg-2 col-md-3 col-sm-4" for="username">Category Name:</label>-->
+                    <!--<div class="col-lg-12 col-md-12 col-sm-12">-->
+                         <!--<input th:type="text" class="form-control" id="username"-->
+                              <!--name="username"-->
+                               <!--placeholder="Enter User Name">-->
+                        <!--&lt;!&ndash;<label th:if="${#fields.hasErrors('username')}" th:errors="*{username}"&ndash;&gt;-->
+                               <!--&lt;!&ndash;class="text-danger"></label>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-lg-2 col-md-3 col-sm-4" for="password">Password:</label>-->
+                    <!--<div class="col-lg-12 col-md-12 col-sm-12">-->
+                        <!--<input th:type="text" class="form-control" id="password"-->
+                               <!--name="password"-->
+                               <!--placeholder="Enter Password">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">-->
+                        <!--<button type="submit" class="btn btn-lg btn-outline-dark btn-block">Create</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</form>-->
+
+            <form class="form-control single-feature wow fadeInUp" th:action="@{/login}" method="post">
 
                 <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="userNames">User Name:</label>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <input th:type="hidden" th:value="${user.getId()}" th:name="*{id}" th:field="*{id}">
-                        <input th:type="text" class="form-control" id="userNames"
-                               th:value="${user.getUserName()}" th:name="*{userName}"
-                               th:field="*{userName}" placeholder="Enter User Name">
-                        <label th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
-                               class="text-danger"></label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="password">Password:</label>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <input th:type="text" class="form-control" id="password"
-                               th:value="${user.getPassword()}" th:name="*{password}"
-                               th:field="*{password}" placeholder="Enter Password">
-                        <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                               class="text-danger"></label>
-                    </div>
+                    <label for="username">Username</label>:
+                    <input type="text"
+                           id="username"
+                           name="username"
+                           class="form-control"
+                           autofocus="autofocus"
+                           placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4">Roles:</label>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                    <ul>
-                        <li th:each="r : ${allRoles}">
-                            <input type="checkbox" th:name="checkRoles"  th:value="${r.getId()}" />
-                                <label th:text="${r.getRolename()}"></label>
-                          </li>
-                    </ul>
-                    </div>
+                    <label for="password">Password</label>:
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Password">
                 </div>
-
-
                 <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="email">User Name:</label>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <input th:type="text" class="form-control" id="email"
-                               th:value="${user.getEmail()}" th:name="*{email}"
-                               th:field="*{email}" placeholder="Enter User Email">
-                        <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                               class="text-danger"></label>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit"
+                                   name="login-submit"
+                                   id="login-submit"
+                                   class="form-control btn btn-info"
+                                   value="Log In">
+                        </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="email">User Mobile:</label>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <input th:type="text" class="form-control" id="mobile"
-                               th:value="${user.getMobile()}" th:name="*{mobile}"
-                               th:field="*{mobile}" placeholder="Enter User Email">
-                        <label th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"
-                               class="text-danger"></label>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="form-group">
-                    <div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">
-                        <button type="submit" class="btn btn-lg btn-outline-dark btn-block">Create</button>
-                    </div>
-                </div>
-
             </form>
 
         </div>
 
-        <div class="row">
-
-            <div class="table-responsive">
-                <table class="table table-hover table-striped">
-                    <thead>
-                    <tr>
-                        <th>S.L</th>
-                        <th>First Name</th>
-                        <th>User Name</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                        <th>Roles</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="data : ${users}">
-                        <td th:text="${data.getId()}">S.L</td>
-                        <td th:text="${data.getFirstName()}">First Name</td>
-                        <td th:text="${data.getUserName()}">User Name</td>
-                        <td th:text="${data.getPassword()}">Password</td>
-                        <td th:text="${data.getEmail()}">Email</td>
-                        <td th:text="${data.getMobile()}">Mobile</td>
-                        <td>
-                        <span  th:each="r : ${data.getRoles()}">
-                            <i th:text="${r.rolename}"></i>
-
-                        </span>
-                        </td>
-                        <td><a id="editview" class="btn btn-sm btn-default" th:href="@{'/user/edit/'+ ${data.id}}"><i
-                                class="fa fa-edit"></i> View</a></td>
-                        <td><a id="delview" class="btn btn-sm btn-default" th:href="@{'/user/del/'+ ${data.id}}"><i
-                                class="fa fa-trash"></i> Del</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <hr/>
-
-
-
-
-                <ul class="nav nav-pills pagination text-center text-dark">
-                    <li class="nav-item" th:each="i : ${#numbers.sequence(0,users.totalPages - 1)}">
-                        <a class="nav-link" th:text="${i}" th:href="@{/user/create/(page=${i})}"></a>
-                    </li>
-                </ul>
-
-
-            </div>
-
-        </div>
 
     </div>
 </section>
@@ -296,6 +224,48 @@
         <p class="small text-center">template is licensed under CC BY 3.</p>
     </div>
 </footer>
+
+
+<!-- Modal for login -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login Here</h4>
+            </div>
+            <div class="modal-body">
+
+                <!--<form class="" action="">-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="username" class="">Username:</label><br>-->
+                        <!--<input type="text" name="username" id="username" class="form-control">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label for="password" class="">Password:</label><br>-->
+                        <!--<input type="text" name="password" id="password" class="form-control">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="submit" name="submit" class="btn btn-lg btn-block submit-btn" value="submit">-->
+                    <!--</div>-->
+                <!--</form>-->
+
+                <hr/>
+                <a href="#" class="btn btn-lg btn-block submit-btn">Login with Google</a>
+                <a href="#" class="btn btn-lg btn-block submit-btn">Login with LinkedIn</a>
+
+                <h6>Don't Have an Account? | <a href="#">Create One</a></h6>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+
+</div>
 
 
 <!-- ***** Footer Area Start ***** -->

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
     <meta charset="UTF-8">
@@ -36,18 +36,27 @@
                         <!-- Menu Area -->
                         <div class="collapse navbar-collapse" id="ca-navbar">
                             <ul class="navbar-nav ml-auto" id="nav">
-                                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                                <li class="nav-item active"><a class="nav-link" th:href="@{/}">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/privilize/create}">Privilize</a></li>
                                 <li class="nav-item"><a class="nav-link" th:href="@{/role/create}">Role</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#screenshot">Projects</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#office">Offices</a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/user/create}">User</a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/category/create}">Category</a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/tag/create}">Tag</a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/post/create}">Post</a></li>
+
+                                <!--<li class="nav-item"><a class="nav-link" href="#screenshot">Projects</a></li>-->
+                                <!--<li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>-->
+                                <!--<li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>-->
+                                <!--<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>-->
+                                <!--<li class="nav-item"><a class="nav-link" href="#office">Offices</a></li>-->
                                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+
                                 <li class="nav-item"><a class="nav-link" href="#login" data-toggle="modal" data-target="#myModal">    <!-- Trigger the modal with a button -->
                                     Login
+                                </a></li>
+                                <li class="nav-item"><a class="nav-link" th:href="@{/logout}">    <!-- Trigger the modal with a button -->
+                                    Logout
                                 </a></li>
                             </ul>
                             <div class="sing-up-button d-lg-none">
@@ -95,6 +104,33 @@
     </div>
 </section>
 <!-- ***** Wellcome Area End ***** -->
+
+<section class="special-area bg-white section_padding_100">
+    <div class="container">
+        <div class="row"  th:each="p : ${list}" >
+            <div class="single-special wow fadeInUp" data-wow-delay="0.2s">
+                <div class="single-icon">
+                    <i class="ti-mobile" aria-hidden="true"></i>
+                </div>
+                <h4 class="text-info" th:text="${p.getTitle()}">Title</h4>
+                <!--<p class="text-justify" th:utext="${p.getDescription().substring(0,100)}">Description</p>-->
+                <p class="text-justify" th:utext="${p.getDescription()}">Description</p>
+                <h5 th:text="${p.getCategory().getCategoryName()}">Category</h5>
+
+            </div>
+        </div>
+        <hr/>
+
+
+        <ul class="nav nav-pills pagination text-center text-dark">
+            Brwose More Posts:
+            <li class="nav-item" th:each="i : ${#numbers.sequence(0,list.totalPages - 1)}">
+                <a class="nav-link" th:text="${i}" th:href="@{/(page=${i})}"></a>
+            </li>
+        </ul>
+    </div>
+</section>
+
 
 <!-- ***** Special Area Start ***** -->
 <section class="special-area bg-white section_padding_100" id="about">

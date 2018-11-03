@@ -6,6 +6,8 @@ import com.coderbd.springoauthrestengine.entity.Role;
 import com.coderbd.springoauthrestengine.repo.CategoryRepo;
 import com.coderbd.springoauthrestengine.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -103,6 +105,7 @@ public class PostController {
         return "create-post";
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(value = "/post/del/{id}", method = RequestMethod.GET)
     public String delPost(@PathVariable Long id, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage) {
         service.delete(id);

@@ -59,7 +59,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Post> posts;
 
-    @ManyToMany(cascade =CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -67,18 +67,6 @@ public class User {
     private Set<Role> roles;
 
     public User() {
-    }
-
-    public User(User user) {
-        this.userName=user.userName;
-        this.firstName=user.firstName;
-        this.lastName=user.lastName;
-        this.email=user.email;
-        this.password=user.password;
-        this.mobile=user.mobile;
-        this.activationKey=user.activationKey;
-        this.isActivated=user.isActivated;
-        this.roles=user.roles;
     }
 
     @Override
@@ -202,6 +190,3 @@ public class User {
         this.roles = roles;
     }
 }
-/*
-https://github.com/TechPrimers/spring-security-db-example
- */

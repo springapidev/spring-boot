@@ -55,13 +55,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/css/**",
                         "/js/**",
                         "/img/**",
-                        "/fonts/**",
-                        "/user/**",
-                        "/role/**"
+                        "/fonts/**"
                 ).permitAll()
                 .antMatchers(
                        "/privilize/**",
-                        "/category/**"
+                        "/category/**",
+                        "/user/**",
+                        "/role/**"
                         ).hasRole("ADMIN")
                 .antMatchers("/post/**",
                         "/tag/**").hasRole("USER")

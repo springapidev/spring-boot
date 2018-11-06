@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Collapsible sidebar using Bootstrap 4</title>
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="css/sidebar-nav.css">
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+        <!-- Font Awesome JS -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+        <!--        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="dismiss" id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>Topjal</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Dummy Heading</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a class="dismiss" href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-arrow-left fa-4x"></i>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+   
+            <!-- Page Content  -->
+            <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light" data-toggle="sticky-onscroll">           
+                <div class="container">
+                    <img src="images/logo.png" height="40" width="auto" alt="Topjal"/>
+                    <h2>Topjal</h2>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" id="sidebarCollapse">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Projects</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Tutorials</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+              <div id="headerAndBody">
+
+            <div class="container">
+                <h1>Bootstrap Tutorial</h1>
+                <p>Bootstrap is the most popular HTML, CSS...</p>
+            </div>
+
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <!--Card-for Category start-->
+                    <div id="header-left" class="col-xl-4 col-lg-4 col-md-4 col-sm-12">  
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="#">Spring Framework</a> 
+                                <span class="badge badge-primary badge-pill">12</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="#">Spring Boot</a>    
+                                <span class="badge badge-primary badge-pill">50</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="#">Problem Solving</a> 
+                                <span class="badge badge-primary badge-pill">99</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="#">Problem Solving</a> 
+                                <span class="badge badge-primary badge-pill">99</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="#">Problem Solving</a> 
+                                <span class="badge badge-primary badge-pill">99</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="#">Problem Solving</a> 
+                                <span class="badge badge-primary badge-pill">99</span>
+                            </li>
+                        </ul> 
+                    </div>
+                    <!--Card-for Category End-->
+                    <!--Card-for BioGraphy start-->
+                    <div id="header-middle" class="col-xl-4 col-lg-4 col-md-4 col-sm-12">                       
+                        <div class="card">   
+                            <img class="card-img-top" src="images/card2.jpg" width="100%" height="280px"/>                        
+                        </div>
+                    </div>
+                    <!--Card-for BioGraphy end-->
+                    <!--Card-for Category start-->
+                    <div id="header-right" class="col-xl-4 col-lg-4 col-md-4 col-sm-12">                       
+                        <div class="card">      
+                            <div class="card-header">
+                                <h5 class="card-title">Subscribe with us</h5>
+                                <input type="text" class="form-control"/>
+                                <input type="submit" class="form-control" value="Subscribe"/>
+                            </div>                           
+                        </div>
+                        <div class="card">      
+                            <div class="card-header">
+                                <h5 class="card-title">Subscribe with us</h5>
+                                <input type="text" class="form-control"/>
+                                <input type="submit" class="form-control" value="Subscribe"/>
+                            </div>                           
+                        </div>
+                    </div>
+                    <!--Card-for Category End-->
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="card text-center">    
+                            <img src="images/card2.jpg" width="100%" height="90px"/>
+                        </div>
+                        <h2>Featured Post</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--Card-1 start-->
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">                       
+                        <div class="card card-effect">
+                            <img class="card-img-top" src="images/card1.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some example text. Some example text.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Card-1 End-->
+                    <!--Card-2 start-->
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">         
+                        <div class="card card-effect">
+                            <img class="card-img-top" src="images/card1.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some example text. Some example text.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Card-2 End-->
+                    <!--Card-3 start-->
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">                      
+                        <div class="card card-effect">
+                            <img class="card-img-top" src="images/card1.png" alt="Card image">
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+                                <p class="card-text">Some example text. Some example text.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Card-3 End-->
+                </div>
+
+            </div>
+        </div>
+        <div class="overlay"></div>
+
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('.dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
+        <script>
+                $(document).ready(function() {
+      // Custom 
+      var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
+        var stickyHeight = sticky.outerHeight();
+        var stickyTop = stickyWrapper.offset().top;
+        if (scrollElement.scrollTop() >= stickyTop){
+          stickyWrapper.height(stickyHeight);
+          sticky.addClass("is-sticky");
+        }
+        else{
+          sticky.removeClass("is-sticky");
+          stickyWrapper.height('auto');
+        }
+      };
+      
+      // Find all data-toggle="sticky-onscroll" elements
+      $('[data-toggle="sticky-onscroll"]').each(function() {
+        var sticky = $(this);
+        var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
+        sticky.before(stickyWrapper);
+        sticky.addClass('sticky');
+        
+        // Scroll & resize events
+        $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function() {
+          stickyToggle(sticky, stickyWrapper, $(this));
+        });
+        
+        // On page load
+        stickyToggle(sticky, stickyWrapper, $(window));
+      });
+    });
+        </script>
+    </body>
+
+</html>

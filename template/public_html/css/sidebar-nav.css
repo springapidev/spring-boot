@@ -24,15 +24,16 @@ body {
     margin-bottom: 30px;
 }
 .card-effect:hover{
-    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+    box-shadow:2px 2px 2px #666, inset 0 60px 0 -36px #92baf4;
+    margin-bottom: 30px;
 }
 .card{
     margin-bottom: 30px!important;
-    background: rgba(255, 255, 255, 0.4)!important;
+    background: rgba(70, 75, 71, 0.1)!important;
 }
 
 #header-left > ul li{
-     background: rgba(255, 255, 255, 0.4)!important;
+     background: rgba(71, 75, 71, 0.1)!important;
 }
 
 
@@ -53,7 +54,7 @@ a:focus {
 }
 
 .navbar {
-    padding: 15px 10px;
+    padding: 6px 10px;
     background: #fff;
     border: none;
     border-radius: 0;
@@ -220,7 +221,7 @@ a.article:hover {
 }
 
 /* sticky navbar................*/
-.sticky.is-sticky {
+/*.sticky.is-sticky {
   position: fixed;
   left: 0;
   right: 0;
@@ -228,4 +229,9 @@ a.article:hover {
   z-index: 998;
   width: 100%;
   opacity: .8;
+}*/
+
+.social-media-icon{
+    padding: 0px 12px;
 }
+

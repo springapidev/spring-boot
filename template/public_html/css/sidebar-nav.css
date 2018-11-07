@@ -4,7 +4,7 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: proxima-nova, Helvetica, Arial, sans-serif;
 
 }
 #headerAndBody{
@@ -19,12 +19,12 @@ body {
     color: #000;
 }
 
-.card-effect{
+.card-effect:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 30px;
 }
-.card-effect:hover{
-    box-shadow:2px 2px 2px #666, inset 0 60px 0 -36px #92baf4;
+.card-effect{
+    box-shadow:2px 2px 2px #666, inset 0 10px 0 -36px #000;
     margin-bottom: 30px;
 }
 .card{
@@ -33,15 +33,15 @@ body {
 }
 
 #header-left > ul li{
-     background: rgba(71, 75, 71, 0.1)!important;
+    background: rgba(71, 75, 71, 0.1)!important;
 }
 
 
 p {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
+    font-size: 13px;
     font-weight: 300;
-    line-height: 1.7em;
+    line-height: 18px;
     color: #000;
 }
 
@@ -58,9 +58,9 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-  
+
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-   
+
 }
 
 .navbar-btn {
@@ -232,6 +232,40 @@ a.article:hover {
 }*/
 
 .social-media-icon{
-    padding: 0px 12px;
+    padding: 0px 11px;
 }
 
+#foot{
+    background-image: url("../images/stripe.png");
+    background-repeat: repeat;
+}
+
+.copyright-text>p{
+    line-height: 1px!important;
+    font-size: 11px;
+}
+.project-img{
+    float: right;
+    height: 192px;
+    width: 250px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;   
+}
+.card-left-img{
+    position: relative;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin-bottom: 30px!important;
+    background: rgba(70, 75, 71, 0.1)!important;
+}

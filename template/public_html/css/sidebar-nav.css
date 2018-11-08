@@ -1,10 +1,13 @@
 /*
     DEMO STYLE
 */
-
+/*
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+*/
+@import url('../css?family=Open+Sans+Condensed');
 body {
-    font-family: proxima-nova, Helvetica, Arial, sans-serif;
+/* font-family: proxima-nova, Helvetica, Arial, sans-serif;*/
+
 
 }
 #headerAndBody{
@@ -35,11 +38,13 @@ body {
 #header-left > ul li{
     background: rgba(71, 75, 71, 0.1)!important;
 }
-
+#header-left > ul li:hover{
+    background: rgba(0, 0, 0, 0.2)!important;
+    color: green;
+}
 
 p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 300;
     line-height: 18px;
     color: #000;
@@ -85,9 +90,9 @@ a:focus {
     position: fixed;
     top: 0;
     left: -250px;
-    height: 100vh;
-    z-index: 999;
-    background: #7386D5;
+    height: 100%;
+    z-index: 10000;
+    background: rgba(70, 75, 71, 0.8)!important;
     color: #fff;
     transition: all 0.3s;
     overflow-y: scroll;
@@ -103,7 +108,7 @@ a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #7386D5;
+      background: rgba(170, 175, 171, 0.8)!important;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -130,12 +135,12 @@ a:focus {
 }
 .overlay.active {
     display: block;
-    opacity: 1;
+   
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+      background: rgba(170, 175, 171, 0.4)!important;
 }
 
 #sidebar ul.components {
@@ -220,16 +225,6 @@ a.article:hover {
     right: 0;
 }
 
-/* sticky navbar................*/
-/*.sticky.is-sticky {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 998;
-  width: 100%;
-  opacity: .8;
-}*/
 
 .social-media-icon{
     padding: 0px 11px;
@@ -240,32 +235,56 @@ a.article:hover {
     background-repeat: repeat;
 }
 
-.copyright-text>p{
-    line-height: 1px!important;
-    font-size: 11px;
-}
-.project-img{
-    float: right;
-    height: 192px;
-    width: 250px;
+@media only screen and (mix-width: 599px) {
+    .project-img{
+        height: 192px;
+        max-width: 290px!important;
+    }
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: block;   
+
+@media only screen and (min-width: 600px) {
+    .copyright-text>p{
+        line-height: 1px!important;
+        font-size: 11px;
+    }
+
+    .project-img{
+        float: right;
+        height: 192px;
+        width: 250px;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: block;   
+    }
+    .card-left-img{
+        position: relative;
+        display: -ms-flexbox;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        margin-bottom: 30px!important;
+        background: rgba(70, 75, 71, 0.1)!important;
+    }
 }
-.card-left-img{
-    position: relative;
-    display: -ms-flexbox;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    margin-bottom: 30px!important;
-    background: rgba(70, 75, 71, 0.1)!important;
+
+#getintouchForm{
+    margin-top: 14px;
 }
+
+
+a:hover{
+    color: green;
+}
+h4:hover{
+    color: green;
+}
+

@@ -59,7 +59,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Post> posts;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -67,6 +67,21 @@ public class User {
     private Set<Role> roles;
 
     public User() {
+    }
+
+    public User(User user) {
+        this.userName = user.userName;
+        this.password = user.password;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.email = user.email;
+        this.mobile = user.mobile;
+        this.joiningDate = user.joiningDate;
+        this.isActivated = user.isActivated;
+        this.activationKey = user.activationKey;
+        this.resetPasswordKey = user.resetPasswordKey;
+        this.posts = user.posts;
+        this.roles = user.roles;
     }
 
     @Override

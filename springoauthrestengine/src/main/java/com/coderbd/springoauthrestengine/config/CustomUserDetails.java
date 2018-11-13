@@ -13,6 +13,7 @@ public class CustomUserDetails extends User implements UserDetails {
 
     public CustomUserDetails(final User user) {
         super(user);
+
     }
 
     @Override

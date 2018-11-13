@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+</head>
+<body>
+<div class="admin admin-add-problem">
+    <form method="post" commandName="problem">
+        <fieldset>
+            <legend>CKEditor Sample</legend>
+            <label for="editor">Write Content</label>
+            <textarea id="editor" path="content"/>
+            <button type="submit" class="buttonSubmit">Save</button>
+        </fieldset>
+    </form>
+</div>
+<ckeditor:replace replace="editor" basePath="/resources/ckeditor/"/>
+
+<script>
+    $(document).ready(function () {
+$CKEDITOR.replace("editor",{
+
+});
+    });
+</script>
+</body>
+</html>

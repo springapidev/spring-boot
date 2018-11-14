@@ -7,11 +7,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import com.topjal.ckeditorthymleaf.config.StorageProperties;
+import com.topjal.ckeditorthymleaf.entity.ImageModel;
 import com.topjal.ckeditorthymleaf.exception.StorageException;
 import com.topjal.ckeditorthymleaf.exception.StorageFileNotFoundException;
+import com.topjal.ckeditorthymleaf.repo.ImageRepository;
 import com.topjal.ckeditorthymleaf.repo.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -23,6 +26,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class FileSystemStorageService implements StorageService {
+    @Autowired
+    private ImageRepository imageRepository;
 
     private final Path rootLocation;
 
@@ -94,6 +99,11 @@ public class FileSystemStorageService implements StorageService {
     @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
+    }
+
+    @Override
+    public Optional<ImageModel> getImageModelById(Long id) {
+        return imageRepository.getImageModelById(id);
     }
 
     @Override

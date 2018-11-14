@@ -1,9 +1,15 @@
 package com.topjal.ckeditorthymleaf.controller;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.util.Base64;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import com.topjal.ckeditorthymleaf.entity.ImageModel;
 import com.topjal.ckeditorthymleaf.exception.StorageFileNotFoundException;
+import com.topjal.ckeditorthymleaf.repo.ImageRepository;
 import com.topjal.ckeditorthymleaf.repo.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -24,6 +30,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class FileUploadController {
+    @Autowired
+    private ImageRepository imageRepository;
 
     private final StorageService storageService;
 
@@ -63,6 +71,18 @@ public class FileUploadController {
         } else {
 
             storageService.store(file);
+            ImageModel imageModel = new ImageModel();
+            imageModel.setName(file.getName());
+            imageModel.setType(file.getContentType());
+            imageModel.setSize(file.getSize());
+            try {
+                imageModel.setPic(file.getBytes());
+            } catch (IOException ie) {
+                ie.printStackTrace();
+            }
+
+            imageRepository.saveAndFlush(imageModel);
+
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded " + file.getOriginalFilename() + "!");
         }
@@ -73,5 +93,14 @@ public class FileUploadController {
     public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
         return ResponseEntity.notFound().build();
     }
+@GetMapping("/{id}")
+    public String getImageModel(@PathVariable Long id, Model model) {
+        Optional<ImageModel> imageModel = storageService.getImageModelById(id);
+
+   imageModel.get().getPic();
+    System.out.println("I am called"+imageModel.get().getPic().toString());
+    return "displaySingleFromDb";
+    }
 
 }
+

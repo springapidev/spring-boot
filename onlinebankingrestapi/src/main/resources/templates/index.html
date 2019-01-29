@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"    xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl" th:class="table-responsive">
+
+    <p>Today's welcome message is:</p>
+    <table th:class="table">
+        <tr ng-repeat="ac in accountlist">
+            <td th:class="warning"> {{ac.id}} </td>
+            <td th:class="active"> {{ac.name}} </td>
+            <td th:class="warning"> {{ac.mobileNo}} </td>
+            <td th:class="active"> {{ac.accountNo}} </td>
+            <td th:class="info"> {{ac.openingDate}} </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+<p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+        $http.get("http://localhost:8008/account-list")
+            .then(function(response) {
+                $scope.accountlist = response.data;
+            });
+    });
+</script>
+</body>
+</html>

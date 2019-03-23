@@ -68,7 +68,7 @@ public class UploadController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
             imageOptimizer.optimizeImage(UPLOADED_FOLDER,file,0.8f,200,250);
-            // Get the file and save it somewhere
+            //            // Get the file and save it somewhere
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -19,4 +19,10 @@ public class HomeController {
         model.addAttribute("countrylist",countrylist);
         return "index";
     }
+
+    @GetMapping("/add")
+    public String add(Model model){
+
+        return "add";
+    }
 }

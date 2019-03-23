@@ -18,14 +18,13 @@
 <h1>The XMLHttpRequest Object</h1>
 
 <form action="">
-    <select onchange="showCustomer(this.value)">
+    <select name="customers" onchange="showCustomer(this.value)">
         <option value="">Select a customer:</option>
         <option th:each="c : ${countrylist}" th:value="${c.id}" th:text="${c.country}"></option>
 
     </select>
 <hr/>
-    <select id="city-dropdown" name="city">
-        <option value="0">Select a CIty</option>
+    <select id="locality-dropdown" name="locality">
     </select>
 </form>
 <br>
@@ -36,11 +35,12 @@
 
     ///////////////////
     function showCustomer(id) {
-     var dropdown = document.getElementById('city-dropdown');
+     var dropdown = document.getElementById('locality-dropdown');
     dropdown.length = 0;
 
     var defaultOption = document.createElement('option');
-    defaultOption.text = 'Select A City';
+    defaultOption.text = 'Choose State/Province';
+        defaultOption.value = '0';
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
 
@@ -65,11 +65,47 @@
                 }
             }
         };
-        xhttp.open("GET", "/city?id="+id, true);
+        xhttp.open("GET", "http://localhost:5000/city?id="+id, true);
         xhttp.send();
     }
 </script>
+<!--<script>-->
+    <!--var dropdown = document.getElementById('locality-dropdown');-->
+    <!--dropdown.length = 0;-->
 
+    <!--var defaultOption = document.createElement('option');-->
+    <!--defaultOption.text = 'Choose State/Province';-->
+
+    <!--dropdown.add(defaultOption);-->
+    <!--dropdown.selectedIndex = 0;-->
+
+    <!--url = 'http://localhost:5000/list';-->
+
+    <!--var request = new XMLHttpRequest();-->
+    <!--request.open('GET', url, true);-->
+
+    <!--request.onload = function() {-->
+        <!--if (request.status === 200) {-->
+            <!--var data = JSON.parse(request.responseText);-->
+            <!--var option;-->
+            <!--for (var i = 0; i < data.length; i++) {-->
+                <!--option = document.createElement('option');-->
+                <!--option.text = data[i].country;-->
+                <!--option.value = data[i].id;-->
+                <!--dropdown.add(option);-->
+            <!--}-->
+        <!--} else {-->
+            <!--// Reached the server, but it returned an error-->
+        <!--}-->
+    <!--}-->
+
+    <!--request.onerror = function() {-->
+        <!--console.error('An error occurred fetching the JSON from ' + url);-->
+    <!--};-->
+
+    <!--request.send();-->
 <!--https://www.codebyamir.com/blog/populate-a-select-dropdown-list-with-json-->
+<!--</script>-->
+
 </body>
 </html>

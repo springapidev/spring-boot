@@ -14,15 +14,15 @@ import java.util.Map;
 public class TestController {
 
     static List<City> cityList;
-    @GetMapping("/list")
-    public List<Country> countryListView(Model model) {
-       List<Country> countrylist; countrylist = new ArrayList<>();
-        countrylist.add(new Country(1L, "BD"));
-        countrylist.add(new Country(2L, "Japan"));
-        countrylist.add(new Country(3L, "USA"));
-        model.addAttribute("countrylist",countrylist);
-        return countrylist;
-    }
+//    @GetMapping("/list")
+//    public List<Country> countryListView(Model model) {
+//       List<Country> countrylist; countrylist = new ArrayList<>();
+//        countrylist.add(new Country(1L, "BD"));
+//        countrylist.add(new Country(2L, "Japan"));
+//        countrylist.add(new Country(3L, "USA"));
+//        model.addAttribute("countrylist",countrylist);
+//        return countrylist;
+//    }
     @GetMapping("/city")
     public List<City> countrySingle(Model model,@RequestParam("id") Long id) {
         System.out.println("ID: "+id);

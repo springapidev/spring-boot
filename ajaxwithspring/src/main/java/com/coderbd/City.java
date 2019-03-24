@@ -1,10 +1,16 @@
 package com.coderbd;
 
-import java.util.Objects;
-
+import javax.persistence.*;
+@Entity
 public class City {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String city;
+
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
 
     public City() {
     }
@@ -28,5 +34,13 @@ public class City {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 }

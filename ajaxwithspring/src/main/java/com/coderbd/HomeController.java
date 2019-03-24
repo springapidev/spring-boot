@@ -1,5 +1,6 @@
 package com.coderbd;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,14 +10,11 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-
+@Autowired
+private CountryRepo countryRepo;
     @GetMapping("/")
     public String index(Model model){
-        List<Country> countrylist = new ArrayList<>();
-        countrylist.add(new Country(1L, "BD"));
-        countrylist.add(new Country(2L, "Japan"));
-        countrylist.add(new Country(3L, "USA"));
-        model.addAttribute("countrylist",countrylist);
+        model.addAttribute("countrylist",countryRepo.findAll());
         return "index";
     }
 

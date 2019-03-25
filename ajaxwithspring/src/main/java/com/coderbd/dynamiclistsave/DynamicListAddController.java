@@ -3,10 +3,7 @@ package com.coderbd.dynamiclistsave;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +18,15 @@ public class DynamicListAddController {
         model.addAttribute("books", bookRepo.findAll());
         return "allbooks";
     }
+    @GetMapping("/del/{index}")
+    public String delFromList(@PathVariable("index") int index) {
 
+        booksForm.removeBook(index);
+
+        System.out.println("size at create: "+booksForm.getBooks().size());
+
+        return "createBook";
+    }
     @GetMapping("/create")
     public String showCreateForm(Model model) {
 

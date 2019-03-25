@@ -54,15 +54,16 @@
             <form action="#" th:action="@{/save}" th:object="${form}"
                   method="post">
 
-            <TABLE id="dataTable" width="350px" border="1">
+                <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')"/>
+                <TABLE id="dataTable" width="350px" border="1">
                 <tr>
-                    <th> <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')"/></th>
+                    <th> <input onClick="checkAll(this);" type="checkbox" /></th>
                     <th>S.L</th>
                     <th>Book Name</th>
                     <th>Author</th>
                 </tr>
                 <TR th:each="book, itemStat : *{books}">
-                    <TD><INPUT type="checkbox" name="chk"/>   </TD>
+                    <TD id="all"><INPUT type="checkbox" name="chk"/>   </TD>
                     <TD> 1</TD>
                     <TD><INPUT type="text" th:field="*{books[__${itemStat.index}__].title}"/></TD>
                     <TD><INPUT type="text" th:field="*{books[__${itemStat.index}__].author}"/></TD>
@@ -128,6 +129,8 @@
                     table.deleteRow(i);
                     rowCount--;
                     i--;
+                    console.log("row no: "+row+" chkbox: "+chkbox);
+                    callDelurl(i);
                 }
 
 
@@ -153,7 +156,37 @@
         xhttp.open("GET", "/create", true);
         xhttp.send();
     }
+    function callDelurl(index) {
+        var xhttp;
 
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+
+            }
+        };
+        xhttp.open("GET", "/del", true);
+        xhttp.send();
+    }
+
+    function checkAll(ele) {
+        var checkboxes = document.getElementsByTagName('input');
+        if (ele.checked) {
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = true;
+                }
+            }
+        } else {
+            for (var i = 0; i < checkboxes.length; i++) {
+                console.log(i)
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = false;
+                }
+            }
+        }
+    }
 </script>
 
 </body>

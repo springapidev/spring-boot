@@ -13,7 +13,9 @@ public BooksCreationDto(){
     public void addBook(Book book) {
         this.books.add(book);
     }
-
+    public void removeBook(int index) {
+        this.books.remove(index);
+    }
     public List<Book> getBooks() {
         return books;
     }

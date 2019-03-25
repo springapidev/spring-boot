@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -18,9 +19,8 @@ public class DynamicListAddTestController {
 public static List<Book> books=new ArrayList();;
 
     @GetMapping("/cr")
-    public String showCreateForm(Model model) {
-        BooksCreationDto form=new BooksCreationDto();
-         model.addAttribute("form", form);
+    public String showCreateForm(List<Book> list, Model model) {
+        model.addAttribute("list",list);
         return "create";
     }
 

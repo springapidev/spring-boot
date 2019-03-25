@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class DynamicListAddController {
@@ -28,8 +29,10 @@ public class DynamicListAddController {
 //        for (int i = 1; i <= 3; i++) {
          //   booksForm.addBook(new Book());
        // }
-        System.out.println("size at create: "+DynamicListRestController.booksForm.getBooks().size());
-       model.addAttribute("form", DynamicListRestController.booksForm);
+        booksForm.addBook(new Book());
+
+        System.out.println("size at create: "+booksForm.getBooks().size());
+       model.addAttribute("form", booksForm);
         return "createBook";
     }
 
@@ -37,7 +40,8 @@ public class DynamicListAddController {
     public String saveBooks(@ModelAttribute BooksCreationDto form, Model model) {
         System.out.println(form.getBooks().size());
         bookRepo.saveAll(form.getBooks());
-        form.setBooks(new ArrayList<Book>());
+        model.addAttribute("form", new BooksCreationDto());
+
         model.addAttribute("books", bookRepo.findAll());
         return "redirect:/all";
     }

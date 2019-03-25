@@ -29,7 +29,7 @@
 
     <div class="row">
         <div class="col-10 bg-success">
-            <form th:action="@{/cr}" th:object="${form}"
+            <form th:action="@{/cr}" th:object="${list}">
                   method="post">
 
             <TABLE id="dataTable" width="350px" border="1">
@@ -39,11 +39,11 @@
                     <th>Book Name</th>
                     <th>Author</th>
                 </tr>
-                <TR th:each="book, itemStat : *{books}">
+                <TR th:each="book : ${list}">
                     <TD><INPUT type="checkbox" name="chk"/>   </TD>
                     <TD> 1</TD>
-                    <TD><INPUT type="text" th:field="*{books[__${itemStat.index}__].title}"/></TD>
-                    <TD><INPUT type="text" th:field="*{books[__${itemStat.index}__].author}"/></TD>
+                    <TD><INPUT type="text" th:field="*{book.title}" th:value="${book.title}"/></TD>
+                    <TD><INPUT type="text" th:field="*{list[__${itemStat.index}__].author}"/></TD>
 
                 </TR>
             </TABLE>

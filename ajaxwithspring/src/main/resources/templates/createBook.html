@@ -100,17 +100,18 @@
 
         var cell2 = row.insertCell(1);
         cell2.innerHTML = rowCount + 1;
-
+        var rowIndex = table.rows.length ;
+        rowIndex-=2;
         var cell3 = row.insertCell(2);
         var element2 = document.createElement("input");
         element2.type = "text";
-        element2.name = "txtbox[]";
+        element2.name = "books["+rowIndex+"].author";
         cell3.appendChild(element2);
 
         var cell4 = row.insertCell(2);
         var element3 = document.createElement("input");
         element3.type = "text";
-        element3.name = "txtbox2[]";
+        element3.name = "books["+rowIndex+"].title";
         cell4.appendChild(element3);
         callurl();
     }
@@ -149,9 +150,10 @@
 
             }
         };
-        xhttp.open("GET", "/addrow", true);
+        xhttp.open("GET", "/create", true);
         xhttp.send();
     }
+
 </script>
 
 </body>

@@ -28,15 +28,8 @@ public class DynamicListAddController {
         return "createBook";
     }
     @GetMapping("/create")
-    public String showCreateForm(Model model) {
-
-
-//        for (int i = 1; i <= 3; i++) {
-         //   booksForm.addBook(new Book());
-       // }
-        booksForm.addBook(new Book());
-
-        System.out.println("size at create: "+booksForm.getBooks().size());
+    public String showCreateForm(Model model,BooksCreationDto form) {
+       System.out.println("size at create: "+booksForm.getBooks().size());
        model.addAttribute("form", booksForm);
         return "createBook";
     }
@@ -48,6 +41,7 @@ public class DynamicListAddController {
         model.addAttribute("form", new BooksCreationDto());
 
         model.addAttribute("books", bookRepo.findAll());
-        return "redirect:/all";
+       form.getBooksZero();
+        return "redirect:/create";
     }
 }

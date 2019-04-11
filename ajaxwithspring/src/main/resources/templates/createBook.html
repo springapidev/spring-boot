@@ -71,7 +71,7 @@
                 </TR>
             </TABLE>
                 <hr/>
-                <input type="submit" id="submitButton" th:value="Save">
+                <input type="submit" id="submitButton" th:value="Save" >
                 <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
             </form>
         </div>
@@ -86,7 +86,6 @@
 
 <script language="javascript">
     function addRow(tableID) {
-
 
         var table = document.getElementById(tableID);
 
@@ -118,6 +117,29 @@
     }
 
     function deleteRow(tableID) {
+                    try {
+                        var table = document.getElementById(tableID);
+                        var rowCount = table.rows.length;
+
+                        for (var i = 0; i < rowCount; i++) {
+                            var row = table.rows[i];
+                            var chkbox = row.cells[0].childNodes[0];
+                            if (null != chkbox && true == chkbox.checked) {
+                                table.deleteRow(i);
+                                rowCount--;
+                                i--;
+                                console.log("row no: "+row+" chkbox: "+chkbox);
+                                callDelurl(i);
+                            }
+
+
+            }
+        } catch (e) {
+            alert(e);
+        }
+    }
+
+    function clearRow(tableID) {
         try {
             var table = document.getElementById(tableID);
             var rowCount = table.rows.length;
@@ -125,7 +147,7 @@
             for (var i = 0; i < rowCount; i++) {
                 var row = table.rows[i];
                 var chkbox = row.cells[0].childNodes[0];
-                if (null != chkbox && true == chkbox.checked) {
+                if (false == chkbox.checked) {
                     table.deleteRow(i);
                     rowCount--;
                     i--;
@@ -139,8 +161,6 @@
             alert(e);
         }
     }
-
-
 
     ///////////////////
     function callurl() {
@@ -166,7 +186,7 @@
 
             }
         };
-        xhttp.open("GET", "/del", true);
+        xhttp.open("GET", "/del/"+index, true);
         xhttp.send();
     }
 

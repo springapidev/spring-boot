@@ -6,7 +6,9 @@ import java.util.List;
 public class BooksCreationDto {
     private List<Book> books=new ArrayList<>();
 public BooksCreationDto(){
-    this.books.add(new Book());
+
+   this.books.add(new Book());
+
 }
     // default and parameterized constructor
 
@@ -19,7 +21,13 @@ public BooksCreationDto(){
     public List<Book> getBooks() {
         return books;
     }
-
+    public List<Book> getBooksZero() {
+    books.clear();
+    if(books.isEmpty()){
+        System.out.println(" List list empty");
+    }
+    return books;
+    }
     public void setBooks(List<Book> books)
     {
         this.books = books;

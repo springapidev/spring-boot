@@ -48,4 +48,12 @@ public class Country {
 
         return Objects.hash(getId(), getCountry());
     }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

@@ -6,11 +6,7 @@
     <link rel="stylesheet" href="/style.css" th:href="@{/style.css}"/>
 </head>
 <body>
-Home.................
-<form th:object="${student}" th:action="@{/}" th:method="post", >
-    <input type="text" th:field="*{name}"/>
-    <button type="submit">Send</button>
-</form>
-
+<h1>Welcome</h1>
+<h1 th:text="${stu.name}"></h1>
 </body>
 </html>

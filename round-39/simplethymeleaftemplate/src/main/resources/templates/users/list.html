@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <title>User List</title>
+</head>
+<body>
+<div layout:fragment="cus-content">
+
+    <div class="container">
+       <div class="row">
+           <div class="col-md-6"> <h1>User List</h1></div>
+           <div class="col-md-6" style="text-align: right"> <h1>
+               <a th:href="@{/user/add}">Add New User</a> </h1>
+           </div>
+       </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <tr class="">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Hobby</th>
+                        <th>Gender</th>
+                        <th>Country</th>
+                        <th colspan="2">Action</th>
+
+                    </tr>
+                    <tr th:each="u : ${list}">
+                        <td th:text="${u.id}"></td>
+                        <td th:text="${u.name}"></td>
+                        <td th:text="${u.userName}"></td>
+                        <td th:text="${u.password}"></td>
+                        <td><span th:each="h : ${u.hobbies}" th:text="${h}+' '"></span></td>
+                        <td th:text="${u.gender}"></td>
+                        <td th:text="${u.country}"></td>
+                        <td> <a th:href="@{'/user/edit/'+${u.id}}">Edit</a></td>
+                        <td> <a th:href="@{'/user/delete/'+${u.id}}">Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

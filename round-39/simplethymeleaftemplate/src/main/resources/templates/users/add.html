@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>Team Page</title>
+
+</head>
+<body>
+
+<div layout:fragment="cus-content">
+
+    <div class="container">
+        <h1>Add User</h1>
+        <h2 th:text="${successMsg}"></h2>
+        <h2 th:text="${errorMsg}"></h2>
+        <form th:object="${user}" th:action="@{/user/add}" method="POST">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="name">Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" th:field="*{name}" id="name"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="userName">Username</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" th:field="*{userName}" id="userName"/>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" th:field="*{password}" id="password"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Hobbies</label>
+                </div>
+                <div class="col-md-9">
+                  Reading:  <input class="check-box check-menu-item" type="checkbox" th:field="*{hobbies}" value="Reading"/>
+                    Playing:  <input class="check-box check-menu-item" type="checkbox" th:field="*{hobbies}" value="Playing"/>
+                    Coding: <input class="check-box check-menu-item" type="checkbox" th:field="*{hobbies}" value="Coding"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Gender</label>
+                </div>
+                <div class="col-md-9 ">
+                   <input class="radio-button" type="radio" th:field="*{gender}" value="Male"/>
+                    <label class="radio-inline">Male</label>
+                    <input class="radio-button" type="radio" th:field="*{gender}" value="Female"/>
+                    <label class="radio-inline">Female</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Country</label>
+                </div>
+                <div class="col-md-9">
+                 <select th:field="*{country}">
+                     <option value="">Select A Country</option>
+                     <option value="Bd">Bangladesh</option>
+                     <option value="USA">USA</option>
+                     <option value="Japan">Japan</option>
+                 </select>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3 offset-9">
+                    <input type="submit" value="Send"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

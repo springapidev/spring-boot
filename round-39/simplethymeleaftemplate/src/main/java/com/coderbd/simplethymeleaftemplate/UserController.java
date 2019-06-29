@@ -65,4 +65,10 @@ public class UserController {
         this.userRepository.deleteById(id);
         return "redirect:/user/list";
     }
+    //////////////////
+    @GetMapping(value = "/loadmore")
+    public String loadMore(Model model){
+        model.addAttribute("list",this.userRepository.findAll());
+        return "users/more";
+    }
 }

@@ -9,6 +9,7 @@ public class HomeController {
     public String displayIndex(){
         return "index";
     }
+
     @GetMapping(value = "/about")
     public String displayAbout(){
         return "about";

@@ -9,6 +9,9 @@ public class Student {
     private Long id;
     private String name;
     private String email;
+    private String gender;
+    private int age;
+
     @ManyToOne
     @JoinColumn(name = "dep_id", nullable = false)
     private Department department;
@@ -42,6 +45,22 @@ public class Student {
 
     public Department getDepartment() {
         return department;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void setDepartment(Department department) {

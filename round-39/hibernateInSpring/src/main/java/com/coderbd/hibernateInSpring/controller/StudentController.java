@@ -58,4 +58,15 @@ public class StudentController {
         model.addAttribute("stu",this.repo.getOne(id));
         return "profilepage";
     }
+
+    @GetMapping(value = "/stubydepandgender")
+    public String showStudentsByDepartmentAndGender(Model model, @RequestParam(value = "depid",
+            required = false, defaultValue = "1") Long id, @RequestParam(value = "gender", required = false,
+            defaultValue = "m") String gender){
+        Department department =new Department();
+        department.setId(id);
+        model.addAttribute("listbydepandgen",this.repo.findAllByDepartmentAndGender(department,gender));
+        model.addAttribute("deplist",this.departmentRepo.findAll());
+        return "studentbydepandgen";
+    }
 }

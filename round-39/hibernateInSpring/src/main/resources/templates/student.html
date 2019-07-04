@@ -11,6 +11,9 @@
 <form th:object="${student}" th:action="@{/student}", th:method="POST">
     <input type="text" th:field="*{name}" >
     <input type="email" th:field="*{email}" >
+    <input type="number" th:field="*{age}" >
+    <input type="radio" th:field="*{gender}" th:value="m" >Male
+    <input type="radio" th:field="*{gender}" th:value="f" >Female
     <select th:field="*{department}" >
         <option th:each="dep : ${deplist}" th:value="${dep.id}"><span th:text="${dep.name}"></span></option>
     </select>

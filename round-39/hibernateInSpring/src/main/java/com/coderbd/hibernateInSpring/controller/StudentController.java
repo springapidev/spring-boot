@@ -69,4 +69,11 @@ public class StudentController {
         model.addAttribute("deplist",this.departmentRepo.findAll());
         return "studentbydepandgen";
     }
+
+    @GetMapping(value = "/age")
+    public String showStudentsByAge(Model model, @RequestParam(value = "age", required = false,
+            defaultValue = "20") int age){
+        model.addAttribute("slist",this.repo.findAllByAgeGreaterThanEqual(age));
+        return "agepage";
+    }
 }

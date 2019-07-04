@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
@@ -49,9 +50,12 @@ public class StudentController {
         return "studentbydep";
     }
 
+
     @GetMapping(value = "/profile")
-    public String showStudentsById(Model model){
-        model.addAttribute("student",this.repo.getOne(3L));
+    public String showStudentsById(Model model, @RequestParam(value = "studentid", required = false,
+            defaultValue = "1") Long id){
+        model.addAttribute("slist",this.repo.findAll());
+        model.addAttribute("stu",this.repo.getOne(id));
         return "profilepage";
     }
 }

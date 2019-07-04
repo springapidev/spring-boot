@@ -26,11 +26,11 @@
         <th>Student Email</th>
         <th>Department Name</th>
     </tr>
-    <tr th:each="d : ${list}">
-        <td th:text="${d.id}"></td>
-        <td th:text="${d.name}"></td>
-        <td th:text="${d.email}"></td>
-        <td th:text="${d.department.name}"></td>
+    <tr th:each="s : ${list}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.email}"></td>
+        <td th:text="${s.department.name}"></td>
     </tr>
 </table>
 

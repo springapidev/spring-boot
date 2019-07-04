@@ -37,8 +37,21 @@ public class StudentController {
           model.addAttribute("successMsg","Data Save Successfully");
           model.addAttribute("list",this.repo.findAll());
           model.addAttribute("deplist",this.departmentRepo.findAll());
-
       }
         return "student";
+    }
+
+    @GetMapping(value = "/stubydep")
+    public String showStudentsByDepartment(Model model){
+        Department department =new Department();
+        department.setId(1L);
+        model.addAttribute("listbydep",this.repo.findAllByDepartment(department));
+        return "studentbydep";
+    }
+
+    @GetMapping(value = "/profile")
+    public String showStudentsById(Model model){
+        model.addAttribute("student",this.repo.getOne(3L));
+        return "profilepage";
     }
 }

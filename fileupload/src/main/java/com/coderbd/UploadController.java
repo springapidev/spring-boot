@@ -20,10 +20,7 @@ import java.nio.file.Paths;
 @Controller
 public class UploadController {
     //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "D:/git/spring-boot/fileupload/src/main/resources/static/images/";
-
-
-
+    private static String UPLOADED_FOLDER = "src/main/resources/static/images/";
 
     @Autowired
     private UserRepo repo;
@@ -31,7 +28,6 @@ public class UploadController {
     @Autowired
     private ImageOptimizer imageOptimizer;
 
-    @ResponseBody
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() throws IOException {
         ModelAndView mv=new ModelAndView();
@@ -67,7 +63,7 @@ public class UploadController {
             System.out.println("=============== save success ============");
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
-            imageOptimizer.optimizeImage(UPLOADED_FOLDER,file,0.8f,200,250);
+            imageOptimizer.optimizeImage(UPLOADED_FOLDER,file,0.2f,200,250);
             //            // Get the file and save it somewhere
 
         } catch (IOException e) {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content-wrapper" layout:fragment="custom-content">
+    <h1>Add User.................</h1>
+    <span th:text="${sucMsg}" style="color:green"></span>
+    <span th:text="${errMsg}" style="color:red;"></span>
+    <form th:object="${user}" th:action="@{/signup}" th:method="post" enctype="multipart/form-data">
+       <label>Username</label>
+        <input type="text" required th:field="*{userName}">
+        <label>Password</label>
+        <input type="password" required th:field="*{password}">
+
+        <label>firstName</label>
+        <input type="text" required th:field="*{firstName}">
+
+        <label>lastName</label>
+        <input type="text" required th:field="*{lastName}">
+
+
+        <label>Email</label>
+        <input type="email" required th:field="*{email}">
+        <label>Mobile</label>
+        <input type="text" required th:field="*{mobile}">
+
+        <label>Roles</label>
+        <select th:field="*{roles}">
+ <option th:each="role : ${rolelist}" th:value="${role.id}"><span th:text="${role.rolename}"></span></option>
+        </select>
+<label>Photo</label>
+        <input type="file" name="photo" required="required">
+        <button type="submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

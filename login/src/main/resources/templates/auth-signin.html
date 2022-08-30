@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Signin </title>
+
+
+
+</head>
+
+<body>
+<span class="alert-danger" th:if="${param.error}">
+                                                    Invalid username and password.
+                                                 </span>
+<span class="alert-info" th:if="${param.signout}">
+                                                      You have been Signed out.
+                                                 </span>
+<form class="account-form" th:action="@{/signin}" th:method="POST">
+
+        <label for="sign-up">Your Email </label>
+        <input type="email" name="username" placeholder="Enter Your Email " id="sign-up">
+
+        <label for="pass">Password</label>
+        <input type="password" name="password" placeholder="Enter Your Password" id="pass">
+
+        <button type="submit" class="mt-2 mb-2">Sign In</button>
+
+</form>
+</body>
+</html>
